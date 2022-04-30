@@ -1,15 +1,42 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
     const { _id, name, img, description, price, quantity, supplier } = product;
+
+    const pageNavigate = useNavigate();
+
+    const productDetails = id => {
+        pageNavigate(`/inventory/${id}`);
+    }
+
     return (
-        <div>
-            <h2>This product</h2>
-            <h4>{name}</h4>
-            <h4>{price}</h4>
-            <h4>{quantity}</h4>
-            <img src={img} alt="" />
+
+        <div className='container'>
+            <div className="row">
+                <div className="col">
+                    <div className="card h-100">
+                        <img src={img} className="card-img-top" alt="..." />
+                        <div className="card-body">
+                            <h5 className="card-title">{name}</h5>
+                            <p className="card-text">{price}</p>
+                            <p className="card-text">{quantity}</p>
+                            <p className="card-text">{supplier}</p>
+                            <p className="card-text">{description}</p>
+                        </div>
+                        <div className="card-footer">
+                            <div className="d-grid">
+                                <button onClick={() => productDetails(_id)} className="btn btn-primary" type="button">Update</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
+
     );
 };
 
