@@ -19,10 +19,10 @@ const Header = () => {
                             </li>
                             <li className="nav-item">
                                 {/* <a className="nav-link" href="#">Login</a> */}
-                                <Link to="/signup" className="nav-link" >Login</Link>
+                                <Link to="/signup" className="nav-link" >Sign Up</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link disabled">Disabled</a>
+                                <Link to="/signin" className="nav-link" >Sign In</Link>
                             </li>
                         </ul>
                         <form className="d-flex">
