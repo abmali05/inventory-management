@@ -16,13 +16,45 @@ const ProductDetails = () => {
 
     }, [])
 
-    const increase = (event) => {
+    const deliver = (event) => {
         event.preventDefault();
 
+
         const url = `http://localhost:5000/inventory/${productId}`;
-        const newQuantity = {
-            quantity: product.quantity - 1,
-        };
+        if (product.quantity >= 1) {
+            const newQuantity = {
+                quantity: product.quantity - 1,
+            };
+
+
+            console.log(product.quantity);
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newQuantity)
+            })
+                .then(res => res.json())
+                .then(data => setProduct(data));
+            window.location.reload(false);
+            return;
+        }
+
+
+    }
+    // if ((product.description).length > 50) {
+    //     product.description = product.description.substring(0, 50) + " ...";
+    // }
+
+    const restock = (event) => {
+        event.preventDefault();
+        const quantity = event.target.quantity.value;
+
+        const newQuantity = { quantity };
+
+        const url = `http://localhost:5000/inventory/${productId}`;
+
         console.log(product.quantity);
         fetch(url, {
             method: 'PUT',
@@ -35,73 +67,61 @@ const ProductDetails = () => {
             .then(data => setProduct(data));
         window.location.reload(false);
         return;
-
     }
 
 
     return (
         <div>
-            <h2>This is product Details</h2>
-            <h2>{product.name}</h2>
-            <h2>{product.quantity}</h2>
-            <input type="button" onClick={increase} value='Decr' />
+
+
 
             <div className='container'>
-                <div className='col'>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">{product.name}</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark
-                                    <img src={product.img} alt="" />
-                                </td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>{product.price}</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <div className="row w-50 mx-auto">
+                    <div className="col">
+                        <div className="card h-100">
+                            <img src={product.img} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">Brand: {product.name}</h5>
+                                <p className="card-text fw-bold">Price: ${product.price}</p>
+                                <p className="card-text fw-bold">Quantity:
 
+                                    {product.quantity === '0' ? 'Sold out' : product.quantity}
+                                </p>
+                                <p className="card-text fw-bold">Supplier: {product.supplier}</p>
+                                <p className="card-text "><b>Description:</b>         {product.description}</p>
+                            </div>
+                            <div className="card-footer">
+                                <div className="d-grid">
+                                    <input type="button" className='btn btn-primary' onClick={deliver} value={product.quantity === '0' ? 'Restock' : 'Delivered.'}
+                                    />
+
+                                </div>
+
+                                <form onSubmit={restock} >
+
+                                    <div className="row my-3">
+
+                                        <div className=" d-block">
+                                            <input type="text" name="quantity" className="form-control" id="inputEmail4" placeholder='Insert value' />
+                                        </div>
+                                    </div>
+
+                                    <div className='row mb-3 w-50 mx-auto'>
+                                        <input type="submit" className="  btn btn-primary" value="Restock" />
+                                    </div>
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
 
-            {/* <form onSubmit={increase} className="w-50 mx-auto">
-                <div className="row mb-3">
-                    <label for="inputEmail3" className="col-sm-2 col-form-label">Name</label>
-                    <div className="col-sm-10">
-                        <input type="text" name="name" className="form-control" id="inputEmail3" placeholder='your name' value={product.name} disabled />
-                    </div>
-                </div>
-                <div className="row mb-3">
-                    <label for="inputEmail4" className="col-sm-2 col-form-label">Email</label>
-                    <div className="col-sm-10">
-                        <input type="text" name="quantity" className="form-control" ref={quantityRef} id="inputEmail4" value={product.quantity} placeholder='your email' />
-                    </div>
-                </div>
 
-                <div className='row mb-3 w-50 mx-auto'>
-                    <input type="submit" className="  btn btn-primary" value="Sign Up" />
-                </div>
-
-            </form> */}
         </div>
     );
 };
