@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Loading from '../../Shared/Loading/Loading';
 import Products from '../Products/Products';
 
 const Home = () => {
+    // const [loading, setLoading] = useState(true);
+
+    // if (loading) {
+    //     setLoading(false)
+    // }
+
     return (
-        <div>
-            <h2>This is home</h2>
-            <Products></Products>
+
+        <div className='container'>
+
+
+            <div className='row'>
+                <Products></Products>
+                <Link to="/manageinventories" className="btn btn-primary w-50 mx-auto" >Manage Items</Link>
+            </div>
+
+            < Loading ></Loading >;
         </div>
     );
 };

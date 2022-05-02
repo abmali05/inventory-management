@@ -20,9 +20,12 @@ const Product = ({ product }) => {
                         <div className="card-body">
                             <h5 className="card-title">{name}</h5>
                             <p className="card-text">{price}</p>
-                            <p className="card-text">{quantity}</p>
+                            <p className="card-text"> {quantity === 0 ? 'Sold out' : product.quantity}</p>
                             <p className="card-text">{supplier}</p>
-                            <p className="card-text">{description}</p>
+                            <p className="card-text">
+                                {/* {description} */}
+                                {(description.length > 100 ? description.substring(0, 100) + " ..." : description)}
+                            </p>
                         </div>
                         <div className="card-footer">
                             <div className="d-grid">

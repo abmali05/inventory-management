@@ -1,33 +1,46 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Loading from '../Shared/Loading/Loading';
 
 const ProductDetails = () => {
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
+        // Runs ONCE after initial rendering
+        // and after every rendering ONLY IF `prop` or `state` changes
         const url = `http://localhost:5000/inventory/${productId}`;
-        console.log(url);
+
+        // const result = expensiveOp(props.value);
+
         fetch(url)
             .then(res => res.json())
-            .then(data => setProduct(data));
+            .then(data => {
+                setProduct(data)
+                setLoading(false);
+            });
 
-    }, [])
 
-    const deliver = (event) => {
-        event.preventDefault();
+    }, [product, productId]);
 
+    if (loading) {
+        return <Loading></Loading>
+    }
+    const deliver = () => {
 
         const url = `http://localhost:5000/inventory/${productId}`;
-        if (product.quantity >= 1) {
+
+        const productQuantity = parseInt(product.quantity);
+
+        if (productQuantity >= 1) {
             const newQuantity = {
-                quantity: product.quantity - 1,
+                quantity: productQuantity - 1,
             };
 
-
-            console.log(product.quantity);
+            console.log(newQuantity);
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -37,8 +50,8 @@ const ProductDetails = () => {
             })
                 .then(res => res.json())
                 .then(data => setProduct(data));
-            window.location.reload(false);
-            return;
+
+
         }
 
 
@@ -49,9 +62,20 @@ const ProductDetails = () => {
 
     const restock = (event) => {
         event.preventDefault();
-        const quantity = event.target.quantity.value;
+        const addQuantity = event.target.quantity.value;
 
-        const newQuantity = { quantity };
+        if (addQuantity <= 0 || addQuantity == null || addQuantity == undefined) {
+            return (alert('Please insert a value greater than 0'));
+        }
+
+        const quantityInt = parseInt(addQuantity);
+
+        // const CurrentQuantity = quantityInt + parseInt(product.quantity);
+        // const newobject = { ...product, quantity: CurrentQuantity }
+
+        const newQuantity = {
+            quantity: parseInt(product.quantity) + quantityInt,
+        };
 
         const url = `http://localhost:5000/inventory/${productId}`;
 
@@ -65,15 +89,14 @@ const ProductDetails = () => {
         })
             .then(res => res.json())
             .then(data => setProduct(data));
-        window.location.reload(false);
-        return;
+        event.target.reset();
+        // window.location.reload(false);
+
     }
 
 
     return (
         <div>
-
-
 
             <div className='container'>
                 <div className="row w-50 mx-auto">
@@ -85,14 +108,19 @@ const ProductDetails = () => {
                                 <p className="card-text fw-bold">Price: ${product.price}</p>
                                 <p className="card-text fw-bold">Quantity:
 
-                                    {product.quantity === '0' ? 'Sold out' : product.quantity}
+                                    {product.quantity === 0 ? 'Sold out' : product.quantity}
+
                                 </p>
                                 <p className="card-text fw-bold">Supplier: {product.supplier}</p>
-                                <p className="card-text "><b>Description:</b>         {product.description}</p>
+                                <p className="card-text "><b>Description:</b>
+                                    {product.description}
+
+
+                                </p>
                             </div>
                             <div className="card-footer">
                                 <div className="d-grid">
-                                    <input type="button" className='btn btn-primary' onClick={deliver} value={product.quantity === '0' ? 'Restock' : 'Delivered.'}
+                                    <input type="button" className='btn btn-primary' onClick={deliver} value="Delivered" disabled={product.quantity === 0 ? true : false}
                                     />
 
                                 </div>
@@ -102,12 +130,12 @@ const ProductDetails = () => {
                                     <div className="row my-3">
 
                                         <div className=" d-block">
-                                            <input type="text" name="quantity" className="form-control" id="inputEmail4" placeholder='Insert value' />
+                                            <input type="number" name="quantity" className="form-control" id="inputEmail4" placeholder='Insert value to restock/Add More' />
                                         </div>
                                     </div>
 
                                     <div className='row mb-3 w-50 mx-auto'>
-                                        <input type="submit" className="  btn btn-primary" value="Restock" />
+                                        <input type="submit" className="  btn btn-primary" value="Restock/Add More" />
                                     </div>
 
                                 </form>
