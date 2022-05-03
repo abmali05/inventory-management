@@ -11,7 +11,7 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
 
     const pageNavigate = useNavigate();
@@ -27,15 +27,6 @@ const SignUp = () => {
         return <Loading></Loading>
     }
 
-
-    // if (user) {
-    //     console.log('user', user);
-    //     return (
-    //         <div>
-    //             <p>Registered User: {user.email}</p>
-    //         </div>
-    //     );
-    // }
 
     const handleSignUp = async (event) => {
         event.preventDefault();
