@@ -9,6 +9,7 @@ import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import ManageItems from './Pages/Home/ManageInventories/ManageInventories';
 import Pdetail from './Pages/Pdetail/Pdetail';
 import AddProduct from './Pages/AddProduct/AddProduct';
+import Myproduct from './Pages/MyProduct/Myproduct';
 function App() {
   return (
     <div>
@@ -24,6 +25,7 @@ function App() {
         {/* <Route path='/inventory/:productId' element={<Pdetail></Pdetail>}></Route> */}
         <Route path='/manageinventories' element={<ManageItems></ManageItems>}></Route>
         <Route path='/addproduct' element={<AddProduct></AddProduct>}></Route>
+        <Route path='/myproduct' element={<Myproduct></Myproduct>}></Route>
       </Routes>
     </div>
   );
