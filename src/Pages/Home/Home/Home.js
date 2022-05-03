@@ -20,7 +20,7 @@ const Home = () => {
                 <Link to="/manageinventories" className="btn btn-primary w-50 mx-auto" >Manage Items</Link>
             </div>
 
-            < Loading ></Loading >;
+
         </div>
     );
 };

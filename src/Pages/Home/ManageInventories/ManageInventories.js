@@ -24,6 +24,7 @@ const ManageInventories = () => {
                 .then(res => res.json())
                 .then(data => {
                     const updateInventory = inventory.filter(inventory => inventory._id !== productId);
+                    console.log(updateInventory);
                     setInventory(updateInventory);
                 })
         }
@@ -32,11 +33,13 @@ const ManageInventories = () => {
         <div className='container'>
             <div className='row'>
                 <h2>Total Products: {inventory.length}</h2>
-                <table className="table table-hover table-bordered">
+                <small><i>Decending Order</i></small>
+                <table className="table table-hover table-bordered border-primary">
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Quantity</th>
+                            <th scope="col">Supplier</th>
                             <th scope="col">Action</th>
 
                         </tr>
@@ -50,6 +53,8 @@ const ManageInventories = () => {
                                     <td> {inventory.name}
                                     </td>
                                     <td> {inventory.quantity}
+                                    </td>
+                                    <td> {inventory.supplier}
                                     </td>
 
                                     <td>

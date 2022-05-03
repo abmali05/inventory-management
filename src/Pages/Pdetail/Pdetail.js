@@ -2,16 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 
-const ProductDetails = () => {
+const PDetail = () => {
 
     const { productId } = useParams();
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
-
+        // Runs ONCE after initial rendering
+        // and after every rendering ONLY IF `prop` or `state` changes
         const url = `http://localhost:5000/inventory/${productId}`;
+
+        // const result = expensiveOp(props.value);
 
         fetch(url)
             .then(res => res.json())
@@ -85,7 +88,11 @@ const ProductDetails = () => {
             body: JSON.stringify(newQuantity)
         })
             .then(res => res.json())
-            .then(data => setProduct(data));
+            // .then(data => setProduct(data));
+            .then(data => {
+                const updateInventory = product.find(product => (product._id === productId));
+                setProduct(updateInventory);
+            })
         event.target.reset();
         // window.location.reload(false);
 
@@ -151,4 +158,4 @@ const ProductDetails = () => {
     );
 };
 
-export default ProductDetails;
+export default PDetail;

@@ -27,6 +27,9 @@ const Header = () => {
                             <li className="nav-item">
                                 <Link to="/manageinventories" className="nav-link" >Manage Items</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link to="/addproduct" className="nav-link" >Add Product</Link>
+                            </li>
                         </ul>
                         <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
