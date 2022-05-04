@@ -23,35 +23,35 @@ const Header = () => {
                         <a className="navbar-brand" href="#">Hidden brand</a>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
+                                <Link className="nav-link active" aria-current="page" to="/home"><i class="bi bi-house-fill"></i> Home</Link>
 
                             </li>
                             <li className="nav-item">
 
-                                <Link to="/signup" className="nav-link" >Sign Up</Link>
+                                <Link to="/signup" className="nav-link" ><i class="bi bi-card-list"></i> Sign Up</Link>
                             </li>
 
                             {
                                 user ?
                                     <li className="nav-item">
-                                        <Link to="/signin" onClick={userSignout} className="nav-link" >Sign Out</Link>
+                                        <Link to="/signin" onClick={userSignout} className="nav-link" ><i class="bi bi-box-arrow-in-left"></i> Sign Out</Link>
                                     </li>
                                     :
                                     <li className="nav-item">
-                                        <Link to="/signin" className="nav-link" >Sign In</Link>
+                                        <Link to="/signin" className="nav-link" ><i class="bi bi-box-arrow-in-right"></i> Sign In</Link>
                                     </li>
                             }
                             {/* <li className="nav-item">
                                 <Link to="/signin" className="nav-link" >Sign In</Link>
                             </li> */}
                             <li className="nav-item">
-                                <Link to="/manageinventories" className="nav-link" >Manage Items</Link>
+                                <Link to="/manageinventories" className="nav-link" ><i class="bi bi-table"></i> Manage Items</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/addproduct" className="nav-link" >Add Product</Link>
+                                <Link to="/addproduct" className="nav-link" ><i class="bi bi-plus-square-fill"></i> Add Product</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/myproduct" className="nav-link" >My Product</Link>
+                                <Link to="/myproduct" className="nav-link" ><i class="bi bi-collection-fill"></i> My Product</Link>
                             </li>
                         </ul>
                         <form className="d-flex">

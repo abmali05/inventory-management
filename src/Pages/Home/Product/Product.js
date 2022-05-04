@@ -29,7 +29,7 @@ const Product = ({ product }) => {
                         </div>
                         <div className="card-footer">
                             <div className="d-grid">
-                                <button onClick={() => productDetails(_id)} className="btn btn-primary" type="button">Update</button>
+                                <button onClick={() => productDetails(_id)} className="btn btn-primary" type="button"><i class="bi bi-arrow-clockwise"></i> Update</button>
 
                             </div>
                         </div>

@@ -58,7 +58,7 @@ const ManageInventories = () => {
                                     </td>
 
                                     <td>
-                                        <button className='btn btn-outline-danger' onClick={() => deleteItem(inventory._id)}>Delete</button>
+                                        <button className='btn btn-outline-danger' onClick={() => deleteItem(inventory._id)}><i class="bi bi-trash"></i> Delete</button>
                                     </td>
                                 </tr>
 
