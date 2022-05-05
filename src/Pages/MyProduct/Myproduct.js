@@ -28,7 +28,7 @@ const Myproduct = () => {
     }, [user])
     return (
         <div className='container'>
-            <div className='row'>
+            <div className='row mt-5'>
                 <h2>My Products: {myproduct.length}</h2>
                 <small><i>Decending Order</i></small>
                 <table className="table table-hover table-bordered border-primary">

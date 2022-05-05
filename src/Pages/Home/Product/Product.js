@@ -15,7 +15,7 @@ const Product = ({ product }) => {
         <div className='container'>
             <div className="row">
                 <div className="col">
-                    <div className="card h-100">
+                    <div className="card h-100 ">
                         <img src={img} className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">{name}</h5>
@@ -29,7 +29,7 @@ const Product = ({ product }) => {
                         </div>
                         <div className="card-footer">
                             <div className="d-grid">
-                                <button onClick={() => productDetails(_id)} className="btn btn-primary" type="button"><i class="bi bi-arrow-clockwise"></i> Update</button>
+                                <button onClick={() => productDetails(_id)} className="btn btn-danger" type="button"><i class="bi bi-arrow-clockwise"></i> Update</button>
 
                             </div>
                         </div>

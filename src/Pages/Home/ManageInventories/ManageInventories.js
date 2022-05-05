@@ -31,8 +31,12 @@ const ManageInventories = () => {
     }
     return (
         <div className='container'>
-            <div className='row'>
-                <h2>Total Products: {inventory.length}</h2>
+            <div className='row mt-5'>
+                <div className='d-flex justify-content-between'>
+                    <h2>Total Products: {inventory.length}</h2>
+                    <button className='btn btn-danger'>Add Product</button>
+                </div>
+
                 <small><i>Decending Order</i></small>
                 <table className="table table-hover table-bordered border-primary">
                     <thead>

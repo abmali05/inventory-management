@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
+import { Link } from 'react-router-dom';
+import './Products';
 
 const Products = () => {
 
@@ -11,7 +13,9 @@ const Products = () => {
             .then(data => setProducts(data));
     }, [])
     return (
-        <div className='container mb-4'>
+
+        <div className='container mt-5'>
+            <h2 className='text-center mb-3'>Our Inventory</h2>
             <div className="row row-cols-1 row-cols-md-3 g-4">
 
                 {products.slice(0, 6).map(product => <Product
@@ -20,7 +24,12 @@ const Products = () => {
                 }
 
             </div>
+            <div className=' text-center mt-4 '>
+                <Link to="/manageinventories" className=" px-5 btn btn-danger" >Manage Items</Link>
+            </div>
+
         </div>
+
     );
 };
 

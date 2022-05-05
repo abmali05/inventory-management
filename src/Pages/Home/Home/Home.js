@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import Loading from '../../Shared/Loading/Loading';
+import TopBrands from '../../TopBrands/TopBrands';
+import Banner from '../Banner/Banner';
+import Milestone from '../Milestone/Milestone';
 import Products from '../Products/Products';
 
 const Home = () => {
@@ -12,13 +15,16 @@ const Home = () => {
 
     return (
 
-        <div className='container'>
+        <div>
 
 
-            <div className='row'>
-                <Products></Products>
-                <Link to="/manageinventories" className="btn btn-primary w-50 mx-auto" >Manage Items</Link>
-            </div>
+
+            <Banner></Banner>
+            <Products></Products>
+            <Milestone></Milestone>
+            <TopBrands></TopBrands>
+
+
 
 
         </div>

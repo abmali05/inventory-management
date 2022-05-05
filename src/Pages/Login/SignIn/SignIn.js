@@ -41,8 +41,9 @@ const SignIn = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSignIn} className="w-50 mx-auto">
+        <div className='row mt-5 w-50 mx-auto'>
+            <h2 className='text-center mb-3'>Please Sign In</h2>
+            <form onSubmit={handleSignIn} className=" ">
 
                 <div className="row mb-3">
                     <label for="inputEmail4" className="col-sm-2 col-form-label">Email</label>
@@ -58,7 +59,7 @@ const SignIn = () => {
                 </div>
 
                 <div className='row mb-3 w-50 mx-auto'>
-                    <input type="submit" className="  btn btn-primary" value="Sign In" />
+                    <input type="submit" className="  btn btn-danger" value="Sign In" />
                 </div>
 
             </form>

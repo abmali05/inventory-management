@@ -41,7 +41,8 @@ const SignUp = () => {
     }
 
     return (
-        <div>
+        <div className='row mt-5'>
+            <h2 className='text-center mb-3'>Please Sign Up</h2>
             <form onSubmit={handleSignUp} className="w-50 mx-auto">
                 <div className="row mb-3">
                     <label for="inputEmail3" className="col-sm-2 col-form-label">Name</label>
@@ -63,7 +64,7 @@ const SignUp = () => {
                 </div>
 
                 <div className='row mb-3 w-50 mx-auto'>
-                    <input type="submit" className="  btn btn-primary" value="Sign Up" />
+                    <input type="submit" className="  btn btn-danger" value="Sign Up" />
                 </div>
 
             </form>

@@ -1,0 +1,19 @@
+.fix-div {
+    /* position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(banner1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block; */
+
+    width: 100%;
+    height: 400px;
+    background-image: url('banner1.jpg');
+    background-size: 100% 100%;
+    border: 1px solid red;
+    display: "block";
+    position: "relative";
+    height: '100%';
+    width: '100%';
+}

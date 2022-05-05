@@ -117,7 +117,7 @@ const ProductDetails = () => {
                             </div>
                             <div className="card-footer">
                                 <div className="d-grid">
-                                    <button className='btn btn-primary' onClick={deliver} disabled={product.quantity === 0 ? true : false}><i class="bi bi-truck"></i> Delivered</button>
+                                    <button className='btn btn-danger' onClick={deliver} disabled={product.quantity === 0 ? true : false}><i class="bi bi-truck"></i> Delivered</button>
                                     {/* <input type="button" className='btn btn-primary' onClick={deliver} value=" Delivered" disabled={product.quantity === 0 ? true : false}
                                     /> */}
 
@@ -133,7 +133,7 @@ const ProductDetails = () => {
                                     </div>
 
                                     <div className='row mb-3 w-50 mx-auto'>
-                                        <button className="  btn btn-primary"><i className="bi bi-plus-square"></i> Restock</button>
+                                        <button className="  btn btn-danger"><i className="bi bi-plus-square"></i> Restock</button>
 
                                     </div>
 

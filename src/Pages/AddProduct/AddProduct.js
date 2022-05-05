@@ -35,7 +35,8 @@ const AddProduct = () => {
     }
 
     return (
-        <div>
+        <div className='row mt-5'>
+            <h2 className='text-center mb-3'>Please Add Product</h2>
             <form onSubmit={ProductSubmit} className="w-50 mx-auto">
 
                 <div className="row mb-3">
@@ -82,7 +83,7 @@ const AddProduct = () => {
                 </div>
 
                 <div className='row mb-3 w-50 mx-auto'>
-                    <input type="submit" className="  btn btn-primary" value="Add Product" />
+                    <input type="submit" className="  btn btn-danger" value="Add Product" />
                 </div>
 
             </form>
