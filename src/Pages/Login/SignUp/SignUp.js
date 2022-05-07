@@ -41,33 +41,35 @@ const SignUp = () => {
     }
 
     return (
-        <div className='row mt-5'>
-            <h2 className='text-center mb-3'>Please Sign Up</h2>
-            <form onSubmit={handleSignUp} className="w-50 mx-auto">
-                <div className="row mb-3">
-                    <label for="inputEmail3" className="col-sm-2 col-form-label">Name</label>
-                    <div className="col-sm-10">
-                        <input type="text" name="name" className="form-control" id="inputEmail3" placeholder='your name' />
+        <div className='container'>
+            <div className='row mt-5'>
+                <h2 className='text-center mb-3'>Please Sign Up</h2>
+                <form onSubmit={handleSignUp} className="w-50 mx-auto">
+                    <div className="row mb-3">
+                        {/* <label for="inputEmail3" className="col-sm-2 col-form-label">Name</label> */}
+                        <div className="col-sm-12">
+                            <input type="text" name="name" className="form-control" id="inputEmail3" placeholder='your name' />
+                        </div>
                     </div>
-                </div>
-                <div className="row mb-3">
-                    <label for="inputEmail4" className="col-sm-2 col-form-label">Email</label>
-                    <div className="col-sm-10">
-                        <input type="email" name="email" className="form-control" id="inputEmail4" placeholder='your email' required />
+                    <div className="row mb-3">
+                        {/* <label for="inputEmail4" className="col-sm-2 col-form-label">Email</label> */}
+                        <div className="col-sm-12">
+                            <input type="email" name="email" className="form-control" id="inputEmail4" placeholder='your email' required />
+                        </div>
                     </div>
-                </div>
-                <div className="row mb-3">
-                    <label for="inputPassword3" className="col-sm-2 col-form-label">Password</label>
-                    <div className="col-sm-10">
-                        <input type="password" name="password" className="form-control" id="inputPassword3" placeholder='password' required />
+                    <div className="row mb-3">
+                        {/* <label for="inputPassword3" className="col-sm-2 col-form-label">Password</label> */}
+                        <div className="col-sm-12">
+                            <input type="password" name="password" className="form-control" id="inputPassword3" placeholder='password' required />
+                        </div>
                     </div>
-                </div>
 
-                <div className='row mb-3 w-50 mx-auto'>
-                    <input type="submit" className="  btn btn-danger" value="Sign Up" />
-                </div>
+                    <div className='row mb-3 w-50 mx-auto'>
+                        <input type="submit" className="  btn btn-danger" value="Sign Up" />
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
     );
 };

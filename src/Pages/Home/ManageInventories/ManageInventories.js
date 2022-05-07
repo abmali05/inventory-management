@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ManageInventories = () => {
 
@@ -34,13 +35,14 @@ const ManageInventories = () => {
             <div className='row mt-5'>
                 <div className='d-flex justify-content-between'>
                     <h2>Total Products: {inventory.length}</h2>
-                    <button className='btn btn-danger'>Add Product</button>
+                    <Link to="/addproduct" className="  btn btn-danger" >Add Product</Link>
                 </div>
 
                 <small><i>Decending Order</i></small>
                 <table className="table table-hover table-bordered border-primary">
                     <thead>
                         <tr>
+
                             <th scope="col">Name</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Supplier</th>
@@ -54,6 +56,7 @@ const ManageInventories = () => {
 
 
                                 <tr key={inventory._id}>
+
                                     <td> {inventory.name}
                                     </td>
                                     <td> {inventory.quantity}

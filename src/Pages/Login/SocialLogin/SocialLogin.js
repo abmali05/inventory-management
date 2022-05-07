@@ -24,11 +24,13 @@ const SocialLogin = () => {
         navigate('/home');
     }
     return (
-        <div>
-            This is SocialLogin
+        <div className='container'>
+            <div className='w-50 mx-auto row mb-3'>
 
-            <button onClick={() => signInWithGoogle()} type="button" className="btn btn-outline-danger"> <i className="bi bi-google"></i> Google</button>
-            {errorElement}
+                <small>Or SignIn by google</small>
+                <button onClick={() => signInWithGoogle()} type="button" className="btn btn-outline-danger"> <i className="bi bi-google"></i> Google</button>
+                {errorElement}
+            </div>
         </div>
     );
 };

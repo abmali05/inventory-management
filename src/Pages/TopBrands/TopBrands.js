@@ -7,7 +7,7 @@ import img3 from './vivo-logo3.png';
 const TopBrands = () => {
     return (
 
-        <div class="container mt-5">
+        <div class="container my-5">
             <h2 className='text-center mb-3'>Top Brands</h2>
 
             <div class="row text-center">

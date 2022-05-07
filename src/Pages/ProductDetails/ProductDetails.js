@@ -95,9 +95,9 @@ const ProductDetails = () => {
     return (
         <div>
 
-            <div className='container'>
-                <div className="row w-50 mx-auto">
-                    <div className="col">
+            <div className='container my-5'>
+                <div className="row">
+                    <div className="col-md-5 mx-auto">
                         <div className="card h-100">
                             <img src={product.img} className="card-img-top" alt="..." />
                             <div className="card-body">

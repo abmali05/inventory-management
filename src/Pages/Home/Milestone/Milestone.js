@@ -3,7 +3,7 @@ import './Milestone.css';
 
 const Milestone = () => {
     return (
-        <div className='container'>
+        <div className='container '>
             <h2 className='text-center mt-5'>Milestone</h2>
             <div className="row shadow-lg p-3 mb-5 bg-body rounded">
                 <div className="col text-white text-center bg-success">
