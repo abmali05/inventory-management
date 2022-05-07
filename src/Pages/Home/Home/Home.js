@@ -7,11 +7,7 @@ import Milestone from '../Milestone/Milestone';
 import Products from '../Products/Products';
 
 const Home = () => {
-    // const [loading, setLoading] = useState(true);
 
-    // if (loading) {
-    //     setLoading(false)
-    // }
 
     return (
 

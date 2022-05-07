@@ -5,6 +5,8 @@ import auth from '../../firebase.init';
 const Myproduct = () => {
 
     const [myproduct, setMyproduct] = useState([]);
+    const [inventory, setInventory] = useState([]);
+
     const [user] = useAuthState(auth);
 
     useEffect(() => {
@@ -17,7 +19,6 @@ const Myproduct = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            // body: JSON.stringify(email)
 
         })
             .then(res => res.json())
@@ -25,7 +26,27 @@ const Myproduct = () => {
                 setMyproduct(data);
                 console.log(data);
             });
-    }, [user])
+    }, [user, inventory]);
+
+
+    const deleteItem = productId => {
+        const confirmDelete = window.confirm("Are you sure to delete?");
+        if (confirmDelete) {
+            const url = `http://localhost:5000/inventory/${productId}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const updateInventory = inventory.filter(inventory => inventory._id !== productId);
+                    console.log(updateInventory);
+                    setInventory(updateInventory);
+                })
+        }
+    }
+
+
+
     return (
         <div className='container'>
             <div className='row mt-5'>
@@ -57,7 +78,7 @@ const Myproduct = () => {
 
                                     <td>
                                         <button className='btn btn-outline-danger'
-                                        // onClick={() => deleteItem(inventory._id)}
+                                            onClick={() => deleteItem(myproduct._id)}
                                         >Delete</button>
                                     </td>
                                 </tr>

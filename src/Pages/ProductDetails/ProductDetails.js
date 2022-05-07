@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
+import './ProductDetails.css';
 
 const ProductDetails = () => {
 
@@ -53,9 +54,7 @@ const ProductDetails = () => {
 
 
     }
-    // if ((product.description).length > 50) {
-    //     product.description = product.description.substring(0, 50) + " ...";
-    // }
+
 
     const restock = (event) => {
         event.preventDefault();
@@ -87,7 +86,6 @@ const ProductDetails = () => {
             .then(res => res.json())
             .then(data => setProduct(data));
         event.target.reset();
-        // window.location.reload(false);
 
     }
 

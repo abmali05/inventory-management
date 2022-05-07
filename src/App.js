@@ -14,7 +14,20 @@ import Myproduct from './Pages/MyProduct/Myproduct';
 import Auth from './Pages/Login/Auth/Auth';
 import About from './Pages/About/About';
 import Blogs from './Pages/Blogs/Blogs';
+import { useEffect, useState } from 'react';
+import Loading from './Pages/Shared/Loading/Loading';
 function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+
+    setLoading(false)
+  }, [])
+
+  if (loading) {
+    return <Loading></Loading>
+  }
   return (
     <div className='page-container'>
       <div className='content-wrap'>

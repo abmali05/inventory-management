@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddProduct = () => {
 
@@ -29,10 +31,12 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => data)
-
-
+        event.target.reset();
+        toast('Product Added Successfully');
 
     }
+
+
 
     return (
         <div className='container'>
@@ -89,6 +93,7 @@ const AddProduct = () => {
 
                 </form>
             </div>
+            <ToastContainer />
         </div>
     );
 };

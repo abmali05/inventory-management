@@ -15,13 +15,13 @@ const Product = ({ product }) => {
         <div className='container'>
             <div className="row">
                 <div className="col">
-                    <div className="card h-100 ">
+                    <div className="card  card-height ">
                         <img src={img} className="card-img-top" alt="..." />
                         <div className="card-body">
-                            <h5 className="card-title">{name}</h5>
-                            <p className="card-text">{price}</p>
-                            <p className="card-text"> {quantity === 0 ? 'Sold out' : product.quantity}</p>
-                            <p className="card-text">{supplier}</p>
+                            <h4 className="card-title">{name}</h4>
+                            <p className="card-text m-0 fw-bold">Price: ${price}</p>
+                            <p className="card-text m-0 fw-bold">Quantity: {quantity === 0 ? 'Sold out' : product.quantity}</p>
+                            <p className="card-text fw-bold">Supplier: {supplier}</p>
                             <p className="card-text">
                                 {/* {description} */}
                                 {(description.length > 100 ? description.substring(0, 100) + " ..." : description)}
