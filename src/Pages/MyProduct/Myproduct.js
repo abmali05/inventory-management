@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Myproduct = () => {
 
@@ -46,6 +48,7 @@ const Myproduct = () => {
                     const updateInventory = inventory.filter(inventory => inventory._id !== productId);
                     console.log(updateInventory);
                     setInventory(updateInventory);
+                    toast('Product Deleted Successfully');
                 })
         }
     }
@@ -100,6 +103,7 @@ const Myproduct = () => {
 
 
             </div>
+            <ToastContainer />
         </div >
     );
 };

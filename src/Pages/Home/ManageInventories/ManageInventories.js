@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import Loading from '../../Shared/Loading/Loading';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ManageInventories = () => {
 
@@ -33,6 +35,8 @@ const ManageInventories = () => {
                     const updateInventory = inventory.filter(inventory => inventory._id !== productId);
                     console.log(updateInventory);
                     setInventory(updateInventory);
+                    toast('Product Deleted Successfully');
+
                 })
         }
     }
@@ -87,6 +91,7 @@ const ManageInventories = () => {
 
 
             </div>
+            <ToastContainer />
         </div >
     );
 };
