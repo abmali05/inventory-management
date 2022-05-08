@@ -22,7 +22,7 @@ const AddProduct = () => {
             img: event.target.img.value
         }
 
-        fetch('http://localhost:5000/addproduct', {
+        fetch('https://protected-scrubland-50002.herokuapp.com/addproduct', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

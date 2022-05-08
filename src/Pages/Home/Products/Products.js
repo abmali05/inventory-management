@@ -2,16 +2,23 @@ import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import { Link } from 'react-router-dom';
 import './Products';
+import Loading from '../../Shared/Loading/Loading';
 
 const Products = () => {
 
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://protected-scrubland-50002.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => setProducts(data));
-    }, [])
+        setLoading(false);
+    }, []);
+
+    if (loading) {
+        return <Loading></Loading>
+    }
     return (
 
         <div className='container mt-5'>

@@ -14,23 +14,27 @@ import Myproduct from './Pages/MyProduct/Myproduct';
 import Auth from './Pages/Login/Auth/Auth';
 import About from './Pages/About/About';
 import Blogs from './Pages/Blogs/Blogs';
-import { useEffect, useState } from 'react';
-import Loading from './Pages/Shared/Loading/Loading';
+import { useEffect } from 'react';
+
+
+const loader = document.querySelector(".preloader");
+
+const showLoader = () => loader.classList.remove("preloader");
+const addClass = () => loader.classList.add("loader-hide");
+
 function App() {
 
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    showLoader();
+    addClass();
+  }, []);
 
-    setLoading(false)
-  }, [])
-
-  if (loading) {
-    return <Loading></Loading>
-  }
   return (
+
     <div className='page-container'>
       <div className='content-wrap'>
+
         <Header></Header>
 
         <Routes>
@@ -48,7 +52,7 @@ function App() {
             </Auth>
 
           }></Route>
-          {/* <Route path='/inventory/:productId' element={<Pdetail></Pdetail>}></Route> */}
+
           <Route path='/manageinventories' element={
             <Auth>
               <ManageItems></ManageItems>
@@ -72,8 +76,11 @@ function App() {
         </Routes>
       </div>
       <Footer></Footer>
+
     </div>
+
   );
-}
+};
+
 
 export default App;

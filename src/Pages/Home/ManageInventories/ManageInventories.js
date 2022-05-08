@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loading from '../../Shared/Loading/Loading';
 
 const ManageInventories = () => {
 
     const [inventory, setInventory] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://protected-scrubland-50002.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => {
                 setInventory(data);
+                setLoading(false);
                 console.log(data);
             });
     }, [])
 
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     const deleteItem = productId => {
         const confirmDelete = window.confirm("Are you sure to delete?");
         if (confirmDelete) {
-            const url = `http://localhost:5000/inventory/${productId}`;
+            const url = `https://protected-scrubland-50002.herokuapp.com/inventory/${productId}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -69,7 +75,7 @@ const ManageInventories = () => {
                                     </td>
 
                                     <td>
-                                        <button className='btn btn-outline-danger' onClick={() => deleteItem(inventory._id)}><i class="bi bi-trash"></i> Delete</button>
+                                        <button className='btn btn-outline-danger' onClick={() => deleteItem(inventory._id)}><i className="bi bi-trash"></i> Delete</button>
                                     </td>
                                 </tr>
 

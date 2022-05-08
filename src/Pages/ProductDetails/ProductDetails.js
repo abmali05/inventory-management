@@ -11,14 +11,11 @@ const ProductDetails = () => {
 
     const navigate = useNavigate();
 
-    const backToHome = () => {
-        navigate('/');
-    }
 
 
     useEffect(() => {
 
-        const url = `http://localhost:5000/inventory/${productId}`;
+        const url = `https://protected-scrubland-50002.herokuapp.com/inventory/${productId}`;
 
         fetch(url)
             .then(res => res.json())
@@ -35,7 +32,7 @@ const ProductDetails = () => {
     }
     const deliver = () => {
 
-        const url = `http://localhost:5000/inventory/${productId}`;
+        const url = `https://protected-scrubland-50002.herokuapp.com/inventory/${productId}`;
 
         const productQuantity = parseInt(product.quantity);
 
@@ -79,7 +76,7 @@ const ProductDetails = () => {
             quantity: parseInt(product.quantity) + quantityInt,
         };
 
-        const url = `http://localhost:5000/inventory/${productId}`;
+        const url = `https://protected-scrubland-50002.herokuapp.com/inventory/${productId}`;
 
         console.log(product.quantity);
         fetch(url, {
@@ -119,8 +116,7 @@ const ProductDetails = () => {
                             <div className="card-footer">
                                 <div className="d-grid">
                                     <button className='btn btn-danger' onClick={deliver} disabled={product.quantity === 0 ? true : false}><i class="bi bi-truck"></i> Delivered</button>
-                                    {/* <input type="button" className='btn btn-primary' onClick={deliver} value=" Delivered" disabled={product.quantity === 0 ? true : false}
-                                    /> */}
+
 
                                 </div>
 

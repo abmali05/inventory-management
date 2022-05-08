@@ -1,10 +1,17 @@
-# Getting Started with Create React App
+# Divine Inventory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site link: [https://inventory-management-11.web.app/](https://inventory-management-11.web.app/)
 
-## Available Scripts
+## Features of this site:
 
-In the project directory, you can run:
+* It is React based website
+* React firebase hooks and router is used here
+* Node JS is used in back-end server
+* Mongodb is used in back-end database
+* Bootstrap framework used here
+* Bootstrap Icon used here
+
+<!-- In the project directory, you can run:
 
 ### `npm start`
 
@@ -67,4 +74,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->

@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 
 const Myproduct = () => {
 
     const [myproduct, setMyproduct] = useState([]);
     const [inventory, setInventory] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const [user] = useAuthState(auth);
 
     useEffect(() => {
         const email = user.email;
         console.log(email);
-        const url = `http://localhost:5000/myproduct?email=${email}`;
+        const url = `https://protected-scrubland-50002.herokuapp.com/myproduct?email=${email}`;
         console.log(url);
         fetch(url, {
             method: 'GET',
@@ -25,14 +27,17 @@ const Myproduct = () => {
             .then(data => {
                 setMyproduct(data);
                 console.log(data);
+                setLoading(false)
             });
     }, [user, inventory]);
 
-
+    if (loading) {
+        return <Loading></Loading>
+    }
     const deleteItem = productId => {
         const confirmDelete = window.confirm("Are you sure to delete?");
         if (confirmDelete) {
-            const url = `http://localhost:5000/inventory/${productId}`;
+            const url = `https://protected-scrubland-50002.herokuapp.com/inventory/${productId}`;
             fetch(url, {
                 method: 'DELETE'
             })

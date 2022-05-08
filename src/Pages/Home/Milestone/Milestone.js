@@ -12,11 +12,11 @@ const Milestone = () => {
 
                 </div>
                 <div className="col text-white text-center bg-warning">
-                    <p className=' icon-size fw-bolder  '> <i class="bi bi-table"></i></p>
+                    <p className=' icon-size fw-bolder  '> <i className="bi bi-table"></i></p>
                     <h2>Products 8000+</h2>
                 </div>
                 <div className="col text-white text-center bg-info">
-                    <p className=' icon-size fw-bolder  '> <i class="bi bi-people"></i></p>
+                    <p className=' icon-size fw-bolder  '> <i className="bi bi-people"></i></p>
                     <h2>Users 2000+</h2>
                 </div>
             </div>

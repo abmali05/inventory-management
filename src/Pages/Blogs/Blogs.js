@@ -5,7 +5,7 @@ const Blogs = () => {
         <div className='container'>
             <div className='row my-5'>
                 <h3>Difference between javascript and nodejs</h3>
-                <table class="table table-bordered">
+                <table className="table table-bordered">
                     <thead>
                         <tr>
 
@@ -76,7 +76,7 @@ const Blogs = () => {
 
                 </p>
                 <h3>Differences between sql and nosql databases</h3>
-                <table class="table table-bordered">
+                <table className="table table-bordered">
                     <thead>
                         <tr>
 
