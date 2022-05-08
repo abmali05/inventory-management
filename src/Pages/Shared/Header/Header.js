@@ -12,10 +12,10 @@ const Header = () => {
         signOut(auth);
     }
     return (
-        <div className='sticky-top'>
+        <div className=' sticky-top'>
 
             <nav className="navbar navbar-expand-lg navbar-light bg-light ">
-                <div className="container-fluid">
+                <div className="container">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
