@@ -1,5 +1,5 @@
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 
@@ -69,6 +69,7 @@ const SignUp = () => {
                     </div>
 
                 </form>
+                <p className='text-center '>Already have an account? <Link to="/signin" className='text-primary pe-auto text-decoration-none' >Please Sign In</Link> </p>
             </div>
         </div>
     );

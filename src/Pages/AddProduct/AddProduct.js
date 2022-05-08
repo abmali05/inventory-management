@@ -2,6 +2,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 
 const AddProduct = () => {
@@ -42,6 +43,9 @@ const AddProduct = () => {
         <div className='container'>
             <div className='row mt-5'>
                 <h2 className='text-center mb-3'>Please Add Product</h2>
+                <div className='text-end mb-2'>
+                    <Link to="/manageinventories" className="  btn btn-danger" >Manage Items</Link>
+                </div>
                 <form onSubmit={ProductSubmit} className=" mx-auto">
 
                     <div className="row mb-3">

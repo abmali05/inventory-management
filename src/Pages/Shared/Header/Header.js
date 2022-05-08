@@ -53,12 +53,25 @@ const Header = () => {
                             {
                                 user ?
                                     <li className="nav-item">
-                                        <Link to="/signin" onClick={userSignout} className="nav-link" ><i class="bi bi-box-arrow-in-left"></i> Sign Out</Link>
+                                        <Link to="/signin" onClick={userSignout} className="nav-link" ><i class="bi bi-box-arrow-in-left"></i> Sign Out </Link>
+
                                     </li>
                                     :
                                     <li className="nav-item">
                                         <Link to="/signin" className="nav-link" ><i class="bi bi-box-arrow-in-right"></i> Sign In</Link>
                                     </li>
+                            }
+
+
+                            {
+                                user && <>
+
+                                    <li className="nav-item ">
+                                        <div className='nav-link'><i class="bi bi-person-square"></i> {user.email}</div>
+
+
+                                    </li>
+                                </>
                             }
 
                         </ul>

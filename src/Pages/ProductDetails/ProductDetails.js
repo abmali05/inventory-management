@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
-import './ProductDetails.css';
+
 
 const ProductDetails = () => {
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
+
+    const navigate = useNavigate();
+
+    const backToHome = () => {
+        navigate('/');
+    }
 
 
     useEffect(() => {
@@ -99,16 +105,13 @@ const ProductDetails = () => {
                         <div className="card h-100">
                             <img src={product.img} className="card-img-top" alt="..." />
                             <div className="card-body">
-                                <h5 className="card-title">Brand: {product.name}</h5>
+                                <h4 className="card-title">{product.name}</h4>
                                 <p className="card-text fw-bold">Price: ${product.price}</p>
-                                <p className="card-text fw-bold">Quantity:
-
-                                    {product.quantity === 0 ? 'Sold out' : product.quantity}
+                                <p className="card-text fw-bold">Quantity: {product.quantity === 0 ? ' Sold out' : product.quantity}
 
                                 </p>
                                 <p className="card-text fw-bold">Supplier: {product.supplier}</p>
-                                <p className="card-text "><b>Description:</b>
-                                    {product.description}
+                                <p className="card-text "><b>Description:</b> {product.description}
 
 
                                 </p>
@@ -140,6 +143,8 @@ const ProductDetails = () => {
 
                             </div>
                         </div>
+                        <div className='text-center mt-2'> <Link to="/" className="  btn btn-danger" >Back</Link></div>
+
                     </div>
 
 

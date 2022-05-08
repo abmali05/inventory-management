@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const Product = ({ product }) => {
     const { _id, name, img, description, price, quantity, supplier } = product;
 
@@ -12,10 +13,10 @@ const Product = ({ product }) => {
 
     return (
 
-        <div className='container'>
-            <div className="row">
-                <div className="col">
-                    <div className="card  card-height ">
+        <div className='container '>
+            <div className="row ">
+                <div className="col ">
+                    <div className="card  ">
                         <img src={img} className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h4 className="card-title">{name}</h4>
@@ -24,7 +25,7 @@ const Product = ({ product }) => {
                             <p className="card-text fw-bold">Supplier: {supplier}</p>
                             <p className="card-text">
                                 {/* {description} */}
-                                {(description.length > 100 ? description.substring(0, 100) + " ..." : description)}
+                                {(description.length > 35 ? description.substring(0, 35) + " ..." : description)}
                             </p>
                         </div>
                         <div className="card-footer">

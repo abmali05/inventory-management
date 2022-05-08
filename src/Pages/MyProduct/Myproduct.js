@@ -55,6 +55,7 @@ const Myproduct = () => {
                 <table className="table table-hover table-bordered border-primary">
                     <thead>
                         <tr>
+                            <th scope="col">Picture</th>
                             <th scope="col">Name</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Supplier</th>
@@ -69,9 +70,12 @@ const Myproduct = () => {
 
 
                                 <tr key={myproduct._id}>
+                                    <td> <img src={myproduct.img} alt="" width="100px" />
+                                    </td>
                                     <td> {myproduct.name}
                                     </td>
-                                    <td> {myproduct.quantity}
+                                    <td> {myproduct.quantity === 0 ? ' Sold out' : myproduct.quantity}
+                                        {/* {myproduct.quantity} */}
                                     </td>
                                     <td> {myproduct.supplier}
                                     </td>

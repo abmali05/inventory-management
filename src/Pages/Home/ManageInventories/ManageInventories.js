@@ -43,6 +43,7 @@ const ManageInventories = () => {
                     <thead>
                         <tr>
 
+                            <th scope="col">Picture</th>
                             <th scope="col">Name</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Supplier</th>
@@ -57,9 +58,12 @@ const ManageInventories = () => {
 
                                 <tr key={inventory._id}>
 
+
+                                    <td> <img src={inventory.img} alt="" width="100px" />
+                                    </td>
                                     <td> {inventory.name}
                                     </td>
-                                    <td> {inventory.quantity}
+                                    <td> {inventory.quantity === 0 ? ' Sold out' : inventory.quantity}
                                     </td>
                                     <td> {inventory.supplier}
                                     </td>

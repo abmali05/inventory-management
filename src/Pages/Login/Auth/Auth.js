@@ -20,16 +20,16 @@ const Auth = ({ children }) => {
 
     if (user.providerData[0]?.providerId === 'password' && !user.emailVerified) {
         return <div className='text-center mt-5'>
-            <h3 className='text-danger'>Your Email is not verified!!</h3>
-            <h5 className='text-success'> Please Verify your email address</h5>
+            <h3 >Email not verified yet!!</h3>
+            <h5 > Please Verify your email </h5>
             <button
-                className='btn btn-primary'
+                className='btn btn-outline-danger'
                 onClick={async () => {
                     await sendEmailVerification();
                     toast('Sent email');
                 }}
             >
-                Send Verification Email Again
+                Send Verification Again
             </button>
             <ToastContainer></ToastContainer>
         </div>
